@@ -1,5 +1,5 @@
 # Floating Combat Text Fix
-[![CF](https://img.shields.io/badge/Download-CurseForge-orange)](null) [![WowInterface](https://img.shields.io/badge/Download-WoWInterface-blue)](null)
+[![CF](https://img.shields.io/badge/Download-CurseForge-orange)](https://www.curseforge.com/wow/addons/floating-combat-text-fix) [![WowInterface](https://img.shields.io/badge/Download-WoWInterface-blue)](https://www.wowinterface.com/downloads/info26603-FloatingCombatTextFix.html)
 
 An AddOn designed exclusively to fix a bug that automatically disables the Floating Combat Text interface option
 
