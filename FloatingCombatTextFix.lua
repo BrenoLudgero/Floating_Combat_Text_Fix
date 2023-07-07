@@ -1,14 +1,28 @@
 local frame = CreateFrame("FRAME")   -- Attributes CreateFrame() to a variable for ease of use
 local locale = GetLocale()           -- Checks the user's client language and saves it to a variable
-local isCombatTextEnabled = GetCVar("enableFloatingCombatText")  -- Saves the current state of Floating Combat Text in a variable
 frame:RegisterEvent("ADDON_LOADED")  -- Starts listening to the in-game ADDON_LOADED events
 
+local function checkCombatTextStatus()  -- Returns the current state of Floating Combat Text
+    return GetCVar("enableFloatingCombatText")
+end
+
+SLASH_FCTFIX1 = "/fct"
+SlashCmdList["FCTFIX"] = function()
+    if checkCombatTextStatus() == "0" then  -- If the Floating Combat text is disabled, enables it and vice versa
+        SetCVar("enableFloatingCombatText", 1)
+        print(combatTextIsEnabledMessage[locale])
+    else
+        SetCVar("enableFloatingCombatText", 0)
+        print(combatTextIsDisabledMessage[locale])
+    end
+end
+
 local function enableCombatText()
-    if isCombatTextEnabled == "0" then  -- If the Floating Combat text is disabled, warns the user then enables it
-        print(combatTextDisabledMessage[locale])
+    if checkCombatTextStatus() == "0" then  -- If the Floating Combat text is disabled, warns the user then enables it
+        print(combatTextNowEnabledMessage[locale])
         SetCVar("enableFloatingCombatText", 1)
     else  -- If it's enabled, shows a different message
-        print(combatTextEnabledMessage[locale])
+        print(combatTextIsEnabledMessage[locale])
     end
 end
 
