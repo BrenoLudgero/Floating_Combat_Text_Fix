@@ -6,9 +6,9 @@ local function checkCombatTextStatus()  -- Returns the current state of Floating
     return GetCVar("enableFloatingCombatText")
 end
 
-SLASH_FCTFIX1 = "/fct"
-SlashCmdList["FCTFIX"] = function()
-    if checkCombatTextStatus() == "0" then  -- If the Floating Combat text is disabled, enables it and vice versa
+SLASH_FCTFIX1 = "/fct"  -- Creates the chat command /fct
+SlashCmdList["FCTFIX"] = function()  -- Assings the chat command instructions to:
+    if checkCombatTextStatus() == "0" then  -- Toggle the Floating Combat Text based on it's current state
         SetCVar("enableFloatingCombatText", 1)
         print(combatTextIsEnabledMessage[locale])
     else
@@ -18,7 +18,7 @@ SlashCmdList["FCTFIX"] = function()
 end
 
 local function enableCombatText()
-    if checkCombatTextStatus() == "0" then  -- If the Floating Combat text is disabled, warns the user then enables it
+    if checkCombatTextStatus() == "0" then  -- If the Floating Combat Text is disabled, warns the user then enables it
         print(combatTextNowEnabledMessage[locale])
         SetCVar("enableFloatingCombatText", 1)
     else  -- If it's enabled, shows a different message
