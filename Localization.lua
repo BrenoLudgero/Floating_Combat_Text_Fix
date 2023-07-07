@@ -1,4 +1,4 @@
--- Localized messages to be shown in the chat when the addOn loads
+-- Localized messages to be shown in the chat
 combatTextNowEnabledMessage = {
     enUS = "|cFFFFFF00Floating Combat Text|r was |cFFF00000Disabled|r but is now |c000FFF00Enabled|r!",
     esMX = "El |cFFFFFF00Texto de Combate Flotante|r estaba |cFFF00000Deshabilitado|r pero ahora está ¡|c000FFF00Habilitado|r!",
