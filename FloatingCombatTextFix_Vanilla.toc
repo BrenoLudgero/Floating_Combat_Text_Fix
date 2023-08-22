@@ -1,4 +1,4 @@
-## Interface: 11403
+## Interface: 11404
 ## Version: 1.0.1
 
 ## Title: Floating Combat Text Fix
