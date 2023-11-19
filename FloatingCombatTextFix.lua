@@ -1,14 +1,16 @@
-local frame = CreateFrame("FRAME")   -- Attributes CreateFrame() to a variable for ease of use
-local locale = GetLocale()           -- Checks the user's client language and saves it to a variable
-frame:RegisterEvent("ADDON_LOADED")  -- Starts listening to the in-game ADDON_LOADED events
+local frame = CreateFrame("FRAME")  -- Attributes CreateFrame() to a variable for ease of use
+local locale = GetLocale()          -- Saves the user's client language
+frame:RegisterEvent("ADDON_LOADED")
 
-local function checkCombatTextStatus()  -- Returns the current state of Floating Combat Text
+-- Returns the current state of Floating Combat Text
+local function checkCombatTextStatus()
     return GetCVar("enableFloatingCombatText")
 end
 
-SLASH_FCTFIX1 = "/fct"  -- Creates the chat command /fct
-SlashCmdList["FCTFIX"] = function()  -- Assings the chat command instructions to:
-    if checkCombatTextStatus() == "0" then  -- Toggle the Floating Combat Text based on it's current state
+-- Creates the chat command /fct to enable or disable the Floating Combat Text
+SLASH_FCTFIX1 = "/fct"
+SlashCmdList["FCTFIX"] = function()
+    if checkCombatTextStatus() == "0" then
         SetCVar("enableFloatingCombatText", 1)
         print(combatTextIsEnabledMessage[locale])
     else
@@ -17,22 +19,25 @@ SlashCmdList["FCTFIX"] = function()  -- Assings the chat command instructions to
     end
 end
 
+-- If the Floating Combat Text is disabled, enables it
 local function enableCombatText()
-    if checkCombatTextStatus() == "0" then  -- If the Floating Combat Text is disabled, warns the user then enables it
-        print(combatTextNowEnabledMessage[locale])
+    if checkCombatTextStatus() == "0" then
         SetCVar("enableFloatingCombatText", 1)
-    else  -- If it's enabled, shows a different message
+        print(combatTextNowEnabledMessage[locale])
+    else
         print(combatTextIsEnabledMessage[locale])
     end
 end
 
-local function handleAddonLoaded(event, addOnName)  -- All ADDON_LOADED events are handled here
-    if event == "ADDON_LOADED" and addOnName == "FloatingCombatTextFix" then  -- If an addOn loads and is called FloatingCombatTextFix:
-        enableCombatText()  -- Runs the function responsible for enabling the Floating Combat Text
+-- Runs enableCombatText() once the addOn loads
+local function handleAddonLoaded(event, addOnName)
+    if event == "ADDON_LOADED" and addOnName == "FloatingCombatTextFix" then
+        enableCombatText()
     end
-    frame:UnregisterEvent("ADDON_LOADED")  -- Stops listening to ADDON_LOADED events
+    frame:UnregisterEvent("ADDON_LOADED") -- Stops listening to ADDON_LOADED events
 end
 
-frame:SetScript("OnEvent", function(_, event, ...)  -- Runs the function below when the addOn is loaded
+-- Runs the functions below when one of the registered in-game events occur
+frame:SetScript("OnEvent", function(_, event, ...)
     handleAddonLoaded(event, ...)
 end)
