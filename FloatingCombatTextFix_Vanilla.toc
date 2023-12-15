@@ -1,5 +1,5 @@
 ## Interface: 11500
-## Version: 1.0.1
+## Version: 2.0.0
 
 ## Title: Floating Combat Text Fix
 ## Title-esMX: Corrección del Texto de Combate Flotante
@@ -24,6 +24,8 @@
 ## Notes-zhCN: 确保默认的浮动战斗文本始终处于活动状态
 
 ## Author: Breno Ludgero
+
+## SavedVariables: fctPreferences
 
 Localization.lua
 FloatingCombatTextFix.lua
