@@ -29,5 +29,9 @@
 
 ## SavedVariables: fctPreferences
 
-Localization.lua
-FloatingCombatTextFix.lua
+Source/Localization.lua
+Source/GlobalVariables.lua
+Source/FctHandler.lua
+Source/Initialization.lua
+Source/EventHandler.lua
+Source/Main.lua
