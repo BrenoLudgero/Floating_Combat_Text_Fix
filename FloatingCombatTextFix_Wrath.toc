@@ -1,8 +1,8 @@
 ## Interface: 30403
-## Version: 2.0.0
+## Version: 2.0.1
 
 ## Title: Floating Combat Text Fix
-## Title-esMX: Corrección del Texto de Combate Flotante
+## Title-esMX: Corrección del Texto Flotante de Combate
 ## Title-esES: Corrección del Texto Flotante de Combate
 ## Title-ptBR: Correção do Texto de Combate Flutuante
 ## Title-deDE: Schwebenden Kampflogtext Korrektur
@@ -13,7 +13,7 @@
 ## Title-zhCN: 浮动战斗文修复
 
 ## Notes: Ensures that the default Floating Combat Text is always active
-## Notes-esMX: Asegura que el Texto de Combate Flotante esté siempre activo
+## Notes-esMX: Asegura que el Texto Flotante de Combate esté siempre activo
 ## Notes-esES: Asegura que el Texto Flotante de Combate esté siempre activo
 ## Notes-ptBR: Garante que o Texto de Combate Flutuante padrão esteja sempre ativo
 ## Notes-deDE: Stellt sicher dass der standardmäßige Schwebenden Kampflogtext immer aktiv ist
@@ -27,9 +27,8 @@
 
 ## SavedVariables: fctPreferences
 
-Source/Localization.lua
-Source/GlobalVariables.lua
-Source/FctHandler.lua
 Source/Initialization.lua
+Source/Localization.lua
+Source/FctHandler.lua
 Source/EventHandler.lua
 Source/Main.lua

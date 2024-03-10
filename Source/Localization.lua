@@ -1,9 +1,11 @@
--- Localized messages to be shown in the chat
-fctNowEnabled = {
+local _, fctf = ...
+local L = fctf.L
+
+L.fctNowEnabled = {
     enUS = "|cFFFFFF00Floating Combat Text|r was |cFFF00000Disabled|r but is now |c000FFF00Enabled|r!",
     esMX = "El |cFFFFFF00Texto Flotante de Combate|r estaba |cFFF00000Deshabilitado|r pero ahora está ¡|c000FFF00Habilitado|r!",
     esES = "El |cFFFFFF00Texto Flotante de Combate|r estaba |cFFF00000Desactivado|r pero ahora está ¡|c000FFF00Activado|r!",
-    ptBR = "O |cFFFFFF00Texto de Combate Flutuante|r estava |cFFF00000Desativado|r mas agora está |c000FFF00Ativado|r!",
+    ptBR = "O |cFFFFFF00Texto de Combate Flutuante|r estava |cFFF00000Desativado|r mas agora está |c000FFF00Ativo|r!",
     deDE = "|cFFFFFF00Schwebenden Kampflogtext|r war |cFFF00000Deaktiviert|r ist aber jetzt |c000FFF00Aktiviert|r!",
     frFR = "Le |cFFFFFF00Texte de Combat Flottant|r était |cFFF00000Désactivé|r mais est maintenant |c000FFF00Activé|r!",
     itIT = "Il |cFFFFFF00Testo di Combattimento Fluttuante|r era |cFFF00000Disabilitato|r ma ora è |c000FFF00Abilitato|r!",
@@ -12,7 +14,7 @@ fctNowEnabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本已|cFFF00000禁用|r，但現在已|c000FFF00啟用|r！",
     zhCN = "|cFFFFFF00浮动战斗文|r本已|cFFF00000禁用|r，但现在已|c000FFF00启用|r！"
 }
-fctEnabled = {
+L.fctEnabled = {
     enUS = "|cFFFFFF00Floating Combat Text|r is |c000FFF00Enabled|r.",
     esMX = "El |cFFFFFF00Texto Flotante de Combate|r está |c000FFF00Habilitado|r.",
     esES = "El |cFFFFFF00Texto Flotante de Combate|r está |c000FFF00Activado|r.",
@@ -25,7 +27,7 @@ fctEnabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本被|c000FFF00啟用|r.",
     zhCN = "|cFFFFFF00浮动战斗文|r本被|c000FFF00启用|r."
 }
-fctDisabled = {
+L.fctDisabled = {
     enUS = "|cFFFFFF00Floating Combat Text|r is |cFFF00000Disabled|r.",
     esMX = "El |cFFFFFF00Texto Flotante de Combate|r está |cFFF00000Deshabilitado|r.",
     esES = "El |cFFFFFF00Texto Flotante de Combate|r está |cFFF00000Desactivado|r.",
@@ -38,7 +40,7 @@ fctDisabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本被|cFFF00000禁用|r.",
     zhCN = "|cFFFFFF00浮动战斗文|r本被|cFFF00000禁用|r."
 }
-optionsEnabled = {
+L.optionsEnabled = {
     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |c000FFF00Enabled|r.",
     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Habilitadas|r.",
     esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Activadas|r.",
@@ -51,7 +53,7 @@ optionsEnabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|c000FFF00啟用|r.",
     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|c000FFF00启用|r."
 }
-optionsDisabled = {
+L.optionsDisabled = {
     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |cFFF00000Disabled|r.",
     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Deshabilitadas|r.",
     esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Desactivadas|r.",
