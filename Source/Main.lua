@@ -1,4 +1,3 @@
--- © 2023-2024 Breno Ludgero. All Rights Reserved.
 local _, fctf = ...
 
 -- Runs the functions below when one of the registered in-game events occur
