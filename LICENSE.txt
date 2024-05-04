@@ -2,13 +2,6 @@
 
 Redistribution and modification of this software, in source or binary forms, are prohibited without prior written permission from the copyright holder.
 
-Permission is hereby granted, free of charge, to any person or organization obtaining a copy of the software and accompanying documentation covered by this license (the "Software")
-to use, reproduce, display, distribute, execute, and transmit the Software, and to prepare derivative works of the Software, provided that:
-
-1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-2. The Software is used for non-commercial purposes only.
-3. Any derivative works created using the Software are owned by the copyright holder and may not be distributed or shared without prior written permission.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
