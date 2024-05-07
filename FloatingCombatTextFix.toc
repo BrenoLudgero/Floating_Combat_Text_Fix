@@ -1,4 +1,4 @@
-## Interface: 100206
+## Interface: 11502, 30403, 40400, 100207
 ## Version: 2.0.1
 
 ## Title: Floating Combat Text Fix
