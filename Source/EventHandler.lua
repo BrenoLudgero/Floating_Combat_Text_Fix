@@ -8,7 +8,6 @@ function fctf.handleAddonLoaded(event, addon)
     if event == "ADDON_LOADED" and addon == addonName then
         fctf.enableCombatText()
         fctf.createSavedVariables()
-        fctf.createSavedVariables = nil
         -- Delaying the options update ensures that the Blizzard_CombatText add-on has already implemented its changes
         C_Timer.After(1, fctf.updateInterfaceOptions)
         fctf.frame:UnregisterEvent("ADDON_LOADED")
