@@ -1,5 +1,6 @@
 ## Interface: 11503, 40400, 100207
 ## Version: 2.0.1
+## IconTexture: Interface/ICONS/Ability_MeleeDamage
 
 ## Title: Floating Combat Text Fix
 ## Title-esMX: Corrección del Texto Flotante de Combate
