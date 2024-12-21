@@ -1,0 +1,4 @@
+ignore:
+  - .github
+  - README.md
+  - Chat_Message.jpg
