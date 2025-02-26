@@ -14,6 +14,18 @@
 ## Title-zhTW: 浮動戰鬥文修復
 ## Title-zhCN: 浮动战斗文修复
 
+## Category-enUS: Combat
+## Category-deDE: Kampf
+## Category-esES: Combate
+## Category-esMX: Combate
+## Category-frFR: Combat
+## Category-itIT: Combattimento
+## Category-koKR: 전투
+## Category-ptBR: Combate
+## Category-ruRU: Бой
+## Category-zhCN: 战斗
+## Category-zhTW: 戰鬥
+
 ## Notes: Ensures that the default Floating Combat Text is always active
 ## Notes-esMX: Asegura que el Texto Flotante de Combate esté siempre activo
 ## Notes-esES: Asegura que el Texto Flotante de Combate esté siempre activo
