@@ -34,6 +34,6 @@ end
 function fctf.createSavedVariables()
     if not fctPreferences then
         fctPreferences = {}
-        saveOptions()
+        fctf.saveOptions()
     end
 end
