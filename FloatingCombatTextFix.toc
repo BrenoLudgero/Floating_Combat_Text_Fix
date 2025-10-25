@@ -1,4 +1,4 @@
-## Interface: 11507, 50510, 40402, 110200
+## Interface: 11508, 50510, 40402, 110205
 ## Version: 2.0.2
 ## IconTexture: Interface/ICONS/Ability_MeleeDamage
 
