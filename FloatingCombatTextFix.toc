@@ -1,5 +1,5 @@
-## Interface: 11508, 50510, 40402, 110207
-## Version: 2.0.2
+## Interface: 11508, 50503, 40402, 110207
+## Version: @project-version@
 ## IconTexture: Interface/ICONS/Ability_MeleeDamage
 
 ## X-WoWI-ID: 26603
