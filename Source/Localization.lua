@@ -135,3 +135,7 @@ L.fctDisabled = {
 --     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|cFFF00000禁用|r.",
 --     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|cFFF00000禁用|r."
 -- }
+L.temporaryMessage = "    |cFFFFFF00Floating Combat Text Fix|r just received new features!\n"..
+                     "You can now modify its behavior via the AddOns pannel.\n"..
+                     "Send '/fct options' in the chat to visit the new options interface.\n"..
+                     "You may also send '/fct' to quickly enable/disable the Floating Combat Text."

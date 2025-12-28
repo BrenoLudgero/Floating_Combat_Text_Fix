@@ -12,6 +12,7 @@ function fctf.handleAddonLoaded(event, addon)
         C_Timer.After(1.5, fctf.applyUserPreferences)
         fctf.initializeInterface()
         fctf.createInterfaceElements()
+        fctf.printTemporaryMessage()
         fctf.frame:UnregisterEvent("ADDON_LOADED")
     end
 end
