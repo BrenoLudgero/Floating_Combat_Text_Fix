@@ -4,7 +4,72 @@ local addonVersion = C_AddOns.GetAddOnMetadata(addonName, "Version")
 local L = fctf.L
 
 L.addonTitle = C_AddOns.GetAddOnMetadata(addonName, "Title")
-
+L.preferences = PREFERENCES
+L.optionsInterfaceSubtitle = {
+    enUS = "Created by "..addonAuthor.."\nVersion "..addonVersion,
+    esMX = "Creado por "..addonAuthor.."\nVersión "..addonVersion,
+    esES = "Creado por "..addonAuthor.."\nVersión "..addonVersion,
+    ptBR = "Criado por "..addonAuthor.."\nVersão "..addonVersion,
+    deDE = "Erstellt von "..addonAuthor.."\nVersion "..addonVersion,
+    frFR = "Créé par "..addonAuthor.."\nVersion "..addonVersion,
+    itIT = "Creato da "..addonAuthor.."\nVersion "..addonVersion,
+    ruRU = "Создано "..addonAuthor.."\nВерсия "..addonVersion,
+    koKR = addonAuthor.."에 의해 생성됨\n버전 "..addonVersion,
+    zhTW = "由"..addonAuthor.."創建\n版本 "..addonVersion,
+    zhCN = "由"..addonAuthor.."创建\n版本 "..addonVersion
+}
+-- ================ TRANSLATION REQUIRED ==================
+L.rememberFctStateCheckBoxLabel = {
+    enUS = "Preserve last Floating Combat Text state",
+    esMX = "Preserve last Floating Combat Text state",
+    esES = "Preserve last Floating Combat Text state",
+    ptBR = "Preserve last Floating Combat Text state",
+    deDE = "Preserve last Floating Combat Text state",
+    frFR = "Preserve last Floating Combat Text state",
+    itIT = "Preserve last Floating Combat Text state",
+    ruRU = "Preserve last Floating Combat Text state",
+    koKR = "Preserve last Floating Combat Text state",
+    zhTW = "Preserve last Floating Combat Text state",
+    zhCN = "Preserve last Floating Combat Text state"
+}
+L.rememberFctStateCheckBoxTooltip = {
+    enUS = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    esMX = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    esES = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    ptBR = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    deDE = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    frFR = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    itIT = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    ruRU = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    koKR = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    zhTW = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session",
+    zhCN = "When this option is enabled, its last known state (enabled or disabled) will persist across sessions\n"..
+           "While disabled, the Floating Combat Text will always be restored at the start of a new session"
+}
+L.displayFctStateCheckBoxLabel = {
+    enUS = "Show Floating Combat Text state as a chat message when logging in",
+    esMX = "Show Floating Combat Text state as a chat message when logging in",
+    esES = "Show Floating Combat Text state as a chat message when logging in",
+    ptBR = "Show Floating Combat Text state as a chat message when logging in",
+    deDE = "Show Floating Combat Text state as a chat message when logging in",
+    frFR = "Show Floating Combat Text state as a chat message when logging in",
+    itIT = "Show Floating Combat Text state as a chat message when logging in",
+    ruRU = "Show Floating Combat Text state as a chat message when logging in",
+    koKR = "Show Floating Combat Text state as a chat message when logging in",
+    zhTW = "Show Floating Combat Text state as a chat message when logging in",
+    zhCN = "Show Floating Combat Text state as a chat message when logging in"
+}
+-- ========================================================
 L.fctNowEnabled = {
     enUS = "|cFFFFFF00Floating Combat Text|r was |cFFF00000Disabled|r but is now |c000FFF00Enabled|r!",
     esMX = "El |cFFFFFF00Texto Flotante de Combate|r estaba |cFFF00000Deshabilitado|r pero ahora está ¡|c000FFF00Habilitado|r!",
@@ -44,29 +109,29 @@ L.fctDisabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本被|cFFF00000禁用|r.",
     zhCN = "|cFFFFFF00浮动战斗文|r本被|cFFF00000禁用|r."
 }
-L.optionsEnabled = {
-    enUS = "All options for |cFFFFFF00Floating Combat Text|r are |c000FFF00Enabled|r.",
-    esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Habilitadas|r.",
-    esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Activadas|r.",
-    ptBR = "Todas as opções do |cFFFFFF00Texto de Combate Flutuante|r estão |c000FFF00Ativadas|r.",
-    deDE = "Alle Optionen für |cFFFFFF00Schwebenden Kampflogtext|r sind |c000FFF00Aktiviert|r.",
-    frFR = "Toutes les options du |cFFFFFF00Texte de Combat Flottant|r sont |c000FFF00Activées|r.",
-    itIT = "Tutte le opzioni per il |cFFFFFF00Testo di Combattimento Fluttuante|r sono |c000FFF00Abilitate|r.",
-    ruRU = "Все параметры для |cFFFFFF00Плавающего Боевого Текста|r |c000FFF00Включены|r.",
-    koKR = "모든 |cFFFFFF00부유하는 전투 텍스트|r옵션이|c000FFF00활성화되었습니다|r.",
-    zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|c000FFF00啟用|r.",
-    zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|c000FFF00启用|r."
-}
-L.optionsDisabled = {
-    enUS = "All options for |cFFFFFF00Floating Combat Text|r are |cFFF00000Disabled|r.",
-    esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Deshabilitadas|r.",
-    esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Desactivadas|r.",
-    ptBR = "Todas as opções do |cFFFFFF00Texto de Combate Flutuante|r estão |c000FFF00Desativadas|r.",
-    deDE = "Alle Optionen für |cFFFFFF00Schwebenden Kampflogtext|r sind |cFFF00000Deaktiviert|r.",
-    frFR = "Toutes les options du |cFFFFFF00Texte de Combat Flottant|r sont |cFFF00000Désactivées|r.",
-    itIT = "Tutte le opzioni per il |cFFFFFF00Testo di Combattimento Fluttuante|r sono |cFFF00000Disattivate|r.",
-    ruRU = "Все параметры для |cFFFFFF00Плавающего Боевого Текста|r |c000FFF00Отключены|r.",
-    koKR = "|cFFFFFF00부유하는 전투 텍스트|r에대한모든옵션이|c000FFF00비활성화됩니다|r.",
-    zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|cFFF00000禁用|r.",
-    zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|cFFF00000禁用|r."
-}
+-- L.optionsEnabled = {
+--     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |c000FFF00Enabled|r.",
+--     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Habilitadas|r.",
+--     esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Activadas|r.",
+--     ptBR = "Todas as opções do |cFFFFFF00Texto de Combate Flutuante|r estão |c000FFF00Ativadas|r.",
+--     deDE = "Alle Optionen für |cFFFFFF00Schwebenden Kampflogtext|r sind |c000FFF00Aktiviert|r.",
+--     frFR = "Toutes les options du |cFFFFFF00Texte de Combat Flottant|r sont |c000FFF00Activées|r.",
+--     itIT = "Tutte le opzioni per il |cFFFFFF00Testo di Combattimento Fluttuante|r sono |c000FFF00Abilitate|r.",
+--     ruRU = "Все параметры для |cFFFFFF00Плавающего Боевого Текста|r |c000FFF00Включены|r.",
+--     koKR = "모든 |cFFFFFF00부유하는 전투 텍스트|r옵션이|c000FFF00활성화되었습니다|r.",
+--     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|c000FFF00啟用|r.",
+--     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|c000FFF00启用|r."
+-- }
+-- L.optionsDisabled = {
+--     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |cFFF00000Disabled|r.",
+--     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Deshabilitadas|r.",
+--     esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Desactivadas|r.",
+--     ptBR = "Todas as opções do |cFFFFFF00Texto de Combate Flutuante|r estão |c000FFF00Desativadas|r.",
+--     deDE = "Alle Optionen für |cFFFFFF00Schwebenden Kampflogtext|r sind |cFFF00000Deaktiviert|r.",
+--     frFR = "Toutes les options du |cFFFFFF00Texte de Combat Flottant|r sont |cFFF00000Désactivées|r.",
+--     itIT = "Tutte le opzioni per il |cFFFFFF00Testo di Combattimento Fluttuante|r sono |cFFF00000Disattivate|r.",
+--     ruRU = "Все параметры для |cFFFFFF00Плавающего Боевого Текста|r |c000FFF00Отключены|r.",
+--     koKR = "|cFFFFFF00부유하는 전투 텍스트|r에대한모든옵션이|c000FFF00비활성화됩니다|r.",
+--     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|cFFF00000禁用|r.",
+--     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|cFFF00000禁用|r."
+-- }

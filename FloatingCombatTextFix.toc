@@ -48,5 +48,6 @@
 Source/Initialization.lua
 Source/Localization.lua
 Source/FctHandler.lua
+Source/Interface.lua
 Source/EventHandler.lua
 Source/Main.lua

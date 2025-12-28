@@ -72,12 +72,12 @@ function fctf.createSavedVariablesIfNeeded()
     createPersistenceVariablesIfMissing()
 end
 
-local function toggleFctStatusMessage()
-    fctfPreferences["displayFctStatusMessageOnLogin"] = not fctfPreferences["displayFctStatusMessageOnLogin"]
-end
-
-local function toggleFctStatusPersistence()
-    fctfPreferences["rememberLastFctState"] = not fctfPreferences["rememberLastFctState"]
+-- Displays the add-on in Options -> AddOns
+function fctf.initializeInterface()
+    fctf.frame.name = fctf.getLocalizedText("addonTitle")
+    local category = Settings.RegisterCanvasLayoutCategory(fctf.frame, fctf.frame.name)
+    category.ID = fctf.frame.name
+    Settings.RegisterAddOnCategory(category)
 end
 
 -- Creates the base chat command /fct with optional arguments
@@ -87,14 +87,8 @@ function fctf.createChatCommands()
         local command = strlower(cmd)
         if command == "" or command == nil then
             fctf.toggleFct()
-        elseif command == "enable" or command == "e" then
-            fctf.enableAllFctOptions()
-        elseif command == "disable" or command == "d" then
-            fctf.disableAllFctOptions()
-        elseif command == "message" or command == "m" then
-            toggleFctStatusMessage()
-        elseif command == "remember" or command == "r" then
-            toggleFctStatusPersistence()
+        elseif command == "options" or command == "o" then
+            Settings.OpenToCategory(fctf.frame.name)
         end
     end
 end

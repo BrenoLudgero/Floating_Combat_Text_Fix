@@ -10,6 +10,8 @@ function fctf.handleAddonLoaded(event, addon)
         fctf.createChatCommands()
         -- Delaying the options update ensures that the Blizzard_CombatText add-on has already implemented its changes
         C_Timer.After(1.5, fctf.applyUserPreferences)
+        fctf.initializeInterface()
+        fctf.createInterfaceElements()
         fctf.frame:UnregisterEvent("ADDON_LOADED")
     end
 end
