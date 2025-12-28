@@ -9,24 +9,29 @@ local function changeFctState(state, message)
     end
 end
 
--- Checks if the value is not already enabled / disabled for options that are not "floatingCombatTextFloatMode"
-local function shouldChangeOption(option, value)
-    return option ~= fctf.fctOptions.floatMode and GetCVar(option) == value
+local function isFctEnabled()
+    return fctf.getCurrentFctState() == "1"
 end
 
 function fctf.toggleFct()
-    if fctf.isFctEnabled() then
+    if isFctEnabled() then
         changeFctState("0", L.fctDisabled[fctf.locale])
     else
         changeFctState("1", L.fctEnabled[fctf.locale])
     end
 end
 
+local function updateFctOptionIfNeeded(option, targetValue)
+    if GetCVar(option) ~= targetValue then
+        SetCVar(option, targetValue)
+    end
+end
+
 -- Enables all options related to FCT
 function fctf.enableAllFctOptions()
     for key, option in pairs(fctf.fctOptions) do
-        if shouldChangeOption(option, "0") then
-            SetCVar(option, "1")
+        if option ~= fctf.fctOptions.floatMode then
+            updateFctOptionIfNeeded(option, "1")
         end
     end
     print(L.optionsEnabled[fctf.locale])
@@ -34,8 +39,8 @@ end
 
 function fctf.disableAllFctOptions()
     for key, option in pairs(fctf.fctOptions) do
-        if shouldChangeOption(option, "1") then
-            SetCVar(option, "0")
+        if option ~= fctf.fctOptions.floatMode then
+            updateFctOptionIfNeeded(option, "0")
         end
     end
     print(L.optionsDisabled[fctf.locale])
@@ -55,7 +60,7 @@ local function updateFctStatus()
     local message = getFctStatusMessage(lastFctState)
     if restoreLastFctState == true then -- Restores the FCT state from last log off
         changeFctState(lastFctState)
-    elseif restoreLastFctState ~= true and fctf.isFctEnabled() == false then
+    elseif restoreLastFctState ~= true and not isFctEnabled() then
         changeFctState("1")
         message = L.fctNowEnabled[fctf.locale]
     end
@@ -67,9 +72,9 @@ function fctf.applyUserPreferences()
     for key, option in pairs(fctf.fctOptions) do
         SetCVar(option, fctfPreferences[key])
     end
-    local displayFctStatusMessage = fctfPreferences["displayFctStatusMessageOnLogin"] ~= false
+    local shouldDisplayFctStatusMessage = fctfPreferences["displayFctStatusMessageOnLogin"] ~= false
     local fctStatusMessage = updateFctStatus()
-    if displayFctStatusMessage then
+    if shouldDisplayFctStatusMessage then
         print(fctStatusMessage)
     end
 end

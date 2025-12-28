@@ -1,8 +1,8 @@
 local _, fctf = ...
 -- fctf: Globals within Floating Combat Text Fix
-local L = fctf.L
 fctf.frame = CreateFrame("Frame")
 fctf.locale = GetLocale()
+fctf.L = {} -- Localized text
 fctf.fctOptions = {
     floatMode = "floatingCombatTextFloatMode",
     lowManaHealth = "floatingCombatTextLowManaHealth",
@@ -27,6 +27,10 @@ fctf.persistenceVariables = {
     lastFctState = "1",
     displayFctStatusMessageOnLogin = true
 }
+
+function fctf.getCurrentFctState()
+    return GetCVar("enableFloatingCombatText")
+end
 
 -- Stores the user's current preferences in SavedVariables
 function fctf.saveUserPreferences()
@@ -63,11 +67,6 @@ local function toggleFctStatusMessage()
 end
 
 local function toggleFctStatusPersistence()
-    -- if fctfPreferences["rememberLastFctState"] == true then
-    --     print(L.fctStatusPersistenceDisabled[fctf.locale])
-    -- else
-    --     print(L.fctStatusPersistenceEnabled[fctf.locale])
-    -- end
     fctfPreferences["rememberLastFctState"] = not fctfPreferences["rememberLastFctState"]
 end
 

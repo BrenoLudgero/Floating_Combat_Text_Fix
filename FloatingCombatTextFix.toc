@@ -45,9 +45,8 @@
 
 ## SavedVariables: fctfPreferences
 
-Source/Globals.lua
-Source/Localization.lua
 Source/Initialization.lua
+Source/Localization.lua
 Source/FctHandler.lua
 Source/EventHandler.lua
 Source/Main.lua

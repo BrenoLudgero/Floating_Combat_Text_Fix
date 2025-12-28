@@ -1,5 +1,5 @@
 local _, fctf = ...
-local L = {}
+local L = fctf.L
 
 L.fctNowEnabled = {
     enUS = "|cFFFFFF00Floating Combat Text|r was |cFFF00000Disabled|r but is now |c000FFF00Enabled|r!",
@@ -66,5 +66,3 @@ L.optionsDisabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|cFFF00000禁用|r.",
     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|cFFF00000禁用|r."
 }
-
-fctf.L = L
