@@ -4,19 +4,8 @@ local L = fctf.L
 -- Turns FCT on or off depending on "state"
 local function changeFctState(state, message)
     SetCVar("enableFloatingCombatText", state)
-    print(message)
-end
-
-local function isFctEnabled()
-    return GetCVar("enableFloatingCombatText") == "1"
-end
-
--- If the FCT is disabled on login, enables it
-function fctf.enableCombatText()
-    if not isFctEnabled() then
-        changeFctState("1", L.fctNowEnabled[fctf.locale])
-    else
-        print(L.fctEnabled[fctf.locale])
+    if message ~= nil then
+        print(message)
     end
 end
 
@@ -25,8 +14,8 @@ local function shouldChangeOption(option, value)
     return option ~= fctf.fctOptions.floatMode and GetCVar(option) == value
 end
 
-local function toggleFct()
-    if isFctEnabled() then
+function fctf.toggleFct()
+    if fctf.isFctEnabled() then
         changeFctState("0", L.fctDisabled[fctf.locale])
     else
         changeFctState("1", L.fctEnabled[fctf.locale])
@@ -34,7 +23,7 @@ local function toggleFct()
 end
 
 -- Enables all options related to FCT
-local function enableAll()
+function fctf.enableAllFctOptions()
     for key, option in pairs(fctf.fctOptions) do
         if shouldChangeOption(option, "0") then
             SetCVar(option, "1")
@@ -43,7 +32,7 @@ local function enableAll()
     print(L.optionsEnabled[fctf.locale])
 end
 
-local function disableAll()
+function fctf.disableAllFctOptions()
     for key, option in pairs(fctf.fctOptions) do
         if shouldChangeOption(option, "1") then
             SetCVar(option, "0")
@@ -52,22 +41,35 @@ local function disableAll()
     print(L.optionsDisabled[fctf.locale])
 end
 
--- Updates the FCT options based on the user's preferences
-function fctf.updateInterfaceOptions()
-    for key, option in pairs(fctf.fctOptions) do
-        SetCVar(option, fctPreferences[key])
+local function getFctStatusMessage(lastFctState)
+    if lastFctState == "0" then
+        return L.fctDisabled[fctf.locale]
+    else
+        return L.fctEnabled[fctf.locale]
     end
 end
 
--- Creates the base chat command /fct with optional arguments
-SLASH_FCTFIX1 = "/fct"
-SlashCmdList["FCTFIX"] = function(cmd)
-    local command = strlower(cmd)
-    if command == "" or command == nil then
-        toggleFct()
-    elseif command == "enable" or command == "e" then
-        enableAll()
-    elseif command == "disable" or command == "d" then
-        disableAll()
+local function updateFctStatus()
+    local restoreLastFctState = fctfPreferences["rememberLastFctState"]
+    local lastFctState = fctfPreferences["lastFctState"]
+    local message = getFctStatusMessage(lastFctState)
+    if restoreLastFctState == true then -- Restores the FCT state from last log off
+        changeFctState(lastFctState)
+    elseif restoreLastFctState ~= true and fctf.isFctEnabled() == false then
+        changeFctState("1")
+        message = L.fctNowEnabled[fctf.locale]
+    end
+    return message
+end
+
+-- Updates the FCT options based on the user's preferences on log in / reload
+function fctf.applyUserPreferences()
+    for key, option in pairs(fctf.fctOptions) do
+        SetCVar(option, fctfPreferences[key])
+    end
+    local displayFctStatusMessage = fctfPreferences["displayFctStatusMessageOnLogin"] ~= false
+    local fctStatusMessage = updateFctStatus()
+    if displayFctStatusMessage then
+        print(fctStatusMessage)
     end
 end

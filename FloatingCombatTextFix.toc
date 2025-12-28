@@ -43,10 +43,11 @@
 
 ## Author: Breno Ludgero
 
-## SavedVariables: fctPreferences
+## SavedVariables: fctfPreferences
 
-Source/Initialization.lua
+Source/Globals.lua
 Source/Localization.lua
+Source/Initialization.lua
 Source/FctHandler.lua
 Source/EventHandler.lua
 Source/Main.lua
