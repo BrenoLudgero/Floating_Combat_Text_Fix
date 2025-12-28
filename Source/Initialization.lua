@@ -1,8 +1,9 @@
 local _, fctf = ...
 -- fctf: Globals within Floating Combat Text Fix
+local gameLanguage = GetLocale()
 fctf.frame = CreateFrame("Frame")
-fctf.locale = GetLocale()
 fctf.L = {} -- Localized text
+
 fctf.fctOptions = {
     floatMode = "floatingCombatTextFloatMode",
     lowManaHealth = "floatingCombatTextLowManaHealth",
@@ -28,6 +29,15 @@ fctf.persistenceVariables = {
     displayFctStatusMessageOnLogin = true
 }
 
+function fctf.getLocalizedText(variableName)
+    local immediateTableValue = fctf.L[variableName]
+    if type(immediateTableValue) == "string" then
+        return immediateTableValue
+    else
+        return immediateTableValue[gameLanguage]
+    end
+end
+
 function fctf.getCurrentFctState()
     return GetCVar("enableFloatingCombatText")
 end
@@ -50,7 +60,7 @@ end
 
 -- Creates the user's preferences table to be stored in SavedVariables.
 -- Also renames the old SavedVariables if found, keeping previous preferences (2.0.3 -> 3.0.0)
-function fctf.createSavedVariables()
+function fctf.createSavedVariablesIfNeeded()
     local deprecatedSavedVariables = fctPreferences
     if deprecatedSavedVariables == nil and fctfPreferences == nil then 
         fctfPreferences = {}

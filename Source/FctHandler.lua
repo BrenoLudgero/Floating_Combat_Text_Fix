@@ -1,5 +1,4 @@
 local _, fctf = ...
-local L = fctf.L
 
 -- Turns FCT on or off depending on "state"
 local function changeFctState(state, message)
@@ -15,9 +14,9 @@ end
 
 function fctf.toggleFct()
     if isFctEnabled() then
-        changeFctState("0", L.fctDisabled[fctf.locale])
+        changeFctState("0", fctf.getLocalizedText("fctDisabled"))
     else
-        changeFctState("1", L.fctEnabled[fctf.locale])
+        changeFctState("1", fctf.getLocalizedText("fctEnabled"))
     end
 end
 
@@ -48,9 +47,9 @@ end
 
 local function getFctStatusMessage(lastFctState)
     if lastFctState == "0" then
-        return L.fctDisabled[fctf.locale]
+        return fctf.getLocalizedText("fctDisabled")
     else
-        return L.fctEnabled[fctf.locale]
+        return fctf.getLocalizedText("fctEnabled")
     end
 end
 
@@ -62,7 +61,7 @@ local function updateFctStatus()
         changeFctState(lastFctState)
     elseif restoreLastFctState ~= true and not isFctEnabled() then
         changeFctState("1")
-        message = L.fctNowEnabled[fctf.locale]
+        message = fctf.getLocalizedText("fctNowEnabled")
     end
     return message
 end

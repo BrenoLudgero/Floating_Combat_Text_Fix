@@ -1,5 +1,9 @@
-local _, fctf = ...
+local addonName, fctf = ...
+local addonAuthor = C_AddOns.GetAddOnMetadata(addonName, "Author")
+local addonVersion = C_AddOns.GetAddOnMetadata(addonName, "Version")
 local L = fctf.L
+
+L.addonTitle = C_AddOns.GetAddOnMetadata(addonName, "Title")
 
 L.fctNowEnabled = {
     enUS = "|cFFFFFF00Floating Combat Text|r was |cFFF00000Disabled|r but is now |c000FFF00Enabled|r!",

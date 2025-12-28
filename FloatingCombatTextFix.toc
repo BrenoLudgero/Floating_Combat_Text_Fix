@@ -17,7 +17,7 @@
 ## Title-zhTW: 浮動戰鬥文修復
 ## Title-zhCN: 浮动战斗文修复
 
-## Category-enUS: Combat
+## Category: Combat
 ## Category-deDE: Kampf
 ## Category-esES: Combate
 ## Category-esMX: Combate
