@@ -12,10 +12,10 @@ local displayFctStateLabel = fctf.getLocalizedText("displayFctStateCheckBoxLabel
 ---------------------------------  HORIZONTAL OFFSETS  ---------------------------------
 
 local initialElementsXPosition = 13
+local tooltipTextureXOffset = 5
 
 -- CHECKBOXES
 local checkButtonXPosition = initialElementsXPosition + 12
-local tooltipTextureXPosisition = checkButtonXPosition + 280
 
 ---------------------------------  VERTICAL OFFSETS  ---------------------------------
 
@@ -46,6 +46,7 @@ local function createCheckButton(text, yPosition, relatedSavedVariable, xPositio
     local label = createText("GameFontHighlight", text)
     label:SetParent(button)
     label:SetPoint("LEFT", button, "RIGHT", 4, 1)
+    button.label = label
     local buttonXPosition = xPosition or initialElementsXPosition
     button:SetPoint("TOPLEFT", buttonXPosition, yPosition)
     button:SetChecked(fctfPreferences[relatedSavedVariable])
@@ -66,10 +67,10 @@ local function createElementTooltip(element, tooltip)
     end)
 end
 
-local function createQuestionMarkTooltip(tooltipText, xPosition, yPosition)
+local function createQuestionMarkTooltip(tooltipText, anchorPoint, xOffset)
     local textureContainer = CreateFrame("Frame", nil, fctf.frame, "BackdropTemplate")
     textureContainer:SetSize(25, 25)
-    textureContainer:SetPoint("TOPLEFT", xPosition, yPosition)
+    textureContainer:SetPoint("LEFT", anchorPoint, "RIGHT", xOffset, 0)
     local texture = textureContainer:CreateTexture(nil)
     texture:SetTexture("interface/icons/inv_misc_questionmark")
     texture:SetAllPoints(textureContainer)
@@ -83,7 +84,7 @@ function fctf.createInterfaceElements()
     createText("GameFontNormalLarge", addonTitle, addonTitleYPosition)
     createText("GameFontHighlight", subtitleText, subtitleYPosition)
     createText("GameFontNormalMed1", preferencesText, preferencesYPosition)
-    createCheckButton(
+    local fctStateButton = createCheckButton(
         rememberFctStateLabel,
         fctStateCheckBoxYPosition, 
         "rememberLastFctState",
@@ -91,8 +92,8 @@ function fctf.createInterfaceElements()
     )
     createQuestionMarkTooltip(
         rememberFctStateTooltip, 
-        tooltipTextureXPosisition, 
-        fctStateCheckBoxYPosition
+        fctStateButton.label,
+        tooltipTextureXOffset
     )
     createCheckButton(
         displayFctStateLabel, 
