@@ -77,9 +77,8 @@ end
 -- Displays the add-on in Options -> AddOns
 function fctf.initializeInterface()
     fctf.frame.name = fctf.getLocalizedText("addonTitle")
-    local category = Settings.RegisterCanvasLayoutCategory(fctf.frame, fctf.frame.name)
-    category.ID = fctf.frame.name
-    Settings.RegisterAddOnCategory(category)
+    fctf.category = Settings.RegisterCanvasLayoutCategory(fctf.frame, fctf.frame.name)
+    Settings.RegisterAddOnCategory(fctf.category)
 end
 
 -- Creates the base chat command /fct with optional arguments
@@ -91,7 +90,7 @@ function fctf.createChatCommands()
         if command == "" or command == nil then
             fctf.toggleFct()
         elseif command == "options" or command == "o" then
-            Settings.OpenToCategory(fctf.frame.name)
+            Settings.OpenToCategory(fctf.category:GetID())
         elseif command == "stop" and ignoreTemporaryMessages == false then
             fctfPreferences["ignoreTemporaryMessages"] = true
         end
