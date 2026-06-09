@@ -4,10 +4,10 @@
 An add-on designed exclusively to fix a bug that automatically disables the Floating Combat Text feature\
 Ensures that all FCT related options stay enabled or disabled based on the user's preferences
 
-![Chat Message](Chat_Message.png)
+![Chat Message](.github/images/Chat_Message.png)
 
 ## Additional Features
 * Fully localized
 * Slash command to toggle FCT on or off
 
-![Options Interface](Options_Window.png)
+![Options Interface](.github/images/Options_Window.png)

@@ -2,4 +2,3 @@ ignore:
   - .github
   - README.md
   - release.sh
-  - Chat_Message.jpg
