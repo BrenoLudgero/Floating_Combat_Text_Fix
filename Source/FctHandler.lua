@@ -14,8 +14,16 @@ end
 
 function fctf.toggleFct()
     if isFctEnabled() then
+        fctf.suppressPreferenceSave = true
+        for _, option in pairs(fctf.fctOptions) do
+            SetCVar(option, 0)
+        end
+        fctf.suppressPreferenceSave = false
         changeFctState("0", fctf.getLocalizedText("fctDisabled"))
     else
+        for key, option in pairs(fctf.fctOptions) do
+            SetCVar(option, fctfPreferences[key])
+        end
         changeFctState("1", fctf.getLocalizedText("fctEnabled"))
     end
 end

@@ -4,4 +4,5 @@ local _, fctf = ...
 fctf.frame:SetScript("OnEvent", function(_, event, ...)
     fctf.handleAddonLoaded(event, ...)
     fctf.handleLogout(event)
+    fctf.handleCVarUpdates(event, ...)
 end)

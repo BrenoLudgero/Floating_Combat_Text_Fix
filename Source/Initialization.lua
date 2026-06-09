@@ -46,8 +46,10 @@ end
 
 -- Stores the user's current preferences in SavedVariables
 function fctf.saveUserPreferences()
-    for key, option in pairs(fctf.fctOptions) do
-        fctfPreferences[key] = GetCVar(option)
+    if fctf.getCurrentFctState() == "1" then
+        for key, option in pairs(fctf.fctOptions) do
+            fctfPreferences[key] = GetCVar(option)
+        end
     end
     fctfPreferences["lastFctState"] = fctf.getCurrentFctState()
 end
