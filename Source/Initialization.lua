@@ -4,26 +4,52 @@ local gameLanguage = GetLocale()
 fctf.frame = CreateFrame("Frame")
 fctf.L = {} -- Localized text
 
-fctf.fctOptions = {
-    floatMode = "floatingCombatTextFloatMode",
-    lowManaHealth = "floatingCombatTextLowManaHealth",
-    auras = "floatingCombatTextAuras",
-    fadingAuras = "floatingCombatTextAuraFade",
-    combatState = "floatingCombatTextCombatState",
-    miss = "floatingCombatTextDodgeParryMiss",
-    damageReduct = "floatingCombatTextDamageReduction",
-    reputation = "floatingCombatTextRepChanges",
-    reactives = "floatingCombatTextReactives",
-    healerNames = "floatingCombatTextFriendlyHealers",
-    comboPoints = "floatingCombatTextComboPoints",
-    energyGains = "floatingCombatTextEnergyGains",
-    honorGains = "floatingCombatTextHonorGains",
-    damage = "floatingCombatTextCombatDamage",
-    damagePeriod = "floatingCombatTextCombatLogPeriodicSpells",
-    damagePet = "floatingCombatTextPetMeleeDamage",
-    healing = "floatingCombatTextCombatHealing"
-}
-fctf.persistenceVariables = {
+local isVanilla = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
+local isBurningCrusade = WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+
+if isVanilla or isBurningCrusade then
+    fctf.fctOptions = {
+        floatMode = "floatingCombatTextFloatMode",
+        lowManaHealth = "floatingCombatTextLowManaHealth",
+        auras = "floatingCombatTextAuras",
+        fadingAuras = "floatingCombatTextAuraFade",
+        combatState = "floatingCombatTextCombatState",
+        miss = "floatingCombatTextDodgeParryMiss",
+        damageReduct = "floatingCombatTextDamageReduction",
+        reputation = "floatingCombatTextRepChanges",
+        reactives = "floatingCombatTextReactives",
+        healerNames = "floatingCombatTextFriendlyHealers",
+        comboPoints = "floatingCombatTextComboPoints",
+        energyGains = "floatingCombatTextEnergyGains",
+        honorGains = "floatingCombatTextHonorGains",
+        damage = "floatingCombatTextCombatDamage",
+        damagePeriod = "floatingCombatTextCombatLogPeriodicSpells",
+        damagePet = "floatingCombatTextPetMeleeDamage",
+        healing = "floatingCombatTextCombatHealing"
+    }
+else
+    fctf.fctOptions = {
+        floatMode = "floatingCombatTextFloatMode_v2",
+        lowManaHealth = "floatingCombatTextLowManaHealth_v2",
+        auras = "floatingCombatTextAuras_v2",
+        fadingAuras = "floatingCombatTextAuraFade_v2",
+        combatState = "floatingCombatTextCombatState_v2",
+        miss = "floatingCombatTextDodgeParryMiss_v2",
+        damageReduct = "floatingCombatTextDamageReduction_v2",
+        reputation = "floatingCombatTextRepChanges_v2",
+        reactives = "floatingCombatTextReactives_v2",
+        healerNames = "floatingCombatTextFriendlyHealers_v2",
+        comboPoints = "floatingCombatTextComboPoints_v2",
+        energyGains = "floatingCombatTextEnergyGains_v2",
+        honorGains = "floatingCombatTextHonorGains_v2",
+        damage = "floatingCombatTextCombatDamage_v2",
+        damagePeriod = "floatingCombatTextCombatLogPeriodicSpells_v2",
+        damagePet = "floatingCombatTextPetMeleeDamage_v2",
+        healing = "floatingCombatTextCombatHealing_v2"
+    }
+end
+
+local persistenceVariables = {
     rememberLastFctState = false,
     lastFctState = "1",
     displayFctStatusMessageOnLogin = true,
@@ -55,7 +81,7 @@ function fctf.saveUserPreferences()
 end
 
 local function createPersistenceVariablesIfMissing()
-    for key, option in pairs(fctf.persistenceVariables) do
+    for key, option in pairs(persistenceVariables) do
         if fctfPreferences[key] == nil then
             fctfPreferences[key] = option
         end
