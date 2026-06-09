@@ -8,4 +8,6 @@ Ensures that all FCT related options stay enabled or disabled based on the user'
 
 ## Additional Features
 * Fully localized
-* Slash commands to quickly change FCT's state and options
+* Slash command to toggle FCT on or off
+
+![Options Interface](Options_Window.png)
