@@ -98,20 +98,20 @@ function fctf.createChatCommands()
 end
 
 -- Display the message 3 times, once every 3 logins
-function fctf.printTemporaryMessage()
-    local remainingMessages = fctfPreferences["temporaryMessagesRemaining"]
-    if remainingMessages <= 0 or fctfPreferences["ignoreTemporaryMessages"] == true then
-        return
-    elseif remainingMessages <= 0 and fctfPreferences["ignoreTemporaryMessages"] == true then
-        fctfPreferences["ignoreTemporaryMessages"] = false
-        return
-    end
-    if remainingMessages % 3 == 1 then
-        local displayedMessageCount = 3 - math.floor((remainingMessages - 1) / 3)
-        print("\n")
-        print(fctf.getLocalizedText("temporaryMessage"))
-        print("    Message "..displayedMessageCount.." out of 3. Send '/fct stop' in the chat to ignore the remaining messages.")
-        print("\n")
-    end
-    fctfPreferences["temporaryMessagesRemaining"] = remainingMessages - 1
-end
+-- function fctf.printTemporaryMessage()
+--     local remainingMessages = fctfPreferences["temporaryMessagesRemaining"]
+--     if remainingMessages <= 0 or fctfPreferences["ignoreTemporaryMessages"] == true then
+--         return
+--     elseif remainingMessages <= 0 and fctfPreferences["ignoreTemporaryMessages"] == true then
+--         fctfPreferences["ignoreTemporaryMessages"] = false
+--         return
+--     end
+--     if remainingMessages % 3 == 1 then
+--         local displayedMessageCount = 3 - math.floor((remainingMessages - 1) / 3)
+--         print("\n")
+--         print(fctf.getLocalizedText("temporaryMessage"))
+--         print("    Message "..displayedMessageCount.." out of 3. Send '/fct stop' in the chat to ignore the remaining messages.")
+--         print("\n")
+--     end
+--     fctfPreferences["temporaryMessagesRemaining"] = remainingMessages - 1
+-- end
