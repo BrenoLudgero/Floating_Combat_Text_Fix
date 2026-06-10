@@ -108,32 +108,6 @@ L.fctDisabled = {
     zhTW = "|cFFFFFF00"..FLOATING_COMBATTEXT_LABEL.."|r本被|cFFF00000禁用|r.",
     zhCN = "|cFFFFFF00"..FLOATING_COMBATTEXT_LABEL.."|r本被|cFFF00000禁用|r."
 }
--- L.optionsEnabled = {
---     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |c000FFF00Enabled|r.",
---     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Habilitadas|r.",
---     esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Activadas|r.",
---     ptBR = "Todas as opções do |cFFFFFF00Texto de Combate Flutuante|r estão |c000FFF00Ativadas|r.",
---     deDE = "Alle Optionen für |cFFFFFF00Schwebender Kampflogtext|r sind |c000FFF00Aktiviert|r.",
---     frFR = "Toutes les options du |cFFFFFF00Texte de Combat Flottant|r sont |c000FFF00Activées|r.",
---     itIT = "Tutte le opzioni per il |cFFFFFF00Testo di Combattimento Fluttuante|r sono |c000FFF00Abilitate|r.",
---     ruRU = "Все параметры для |cFFFFFF00Плавающего Боевого Текста|r |c000FFF00Включены|r.",
---     koKR = "모든 |cFFFFFF00부유하는 전투 텍스트|r옵션이|c000FFF00활성화되었습니다|r.",
---     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|c000FFF00啟用|r.",
---     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|c000FFF00启用|r."
--- }
--- L.optionsDisabled = {
---     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |cFFF00000Disabled|r.",
---     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Deshabilitadas|r.",
---     esES = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |cFFF00000Desactivadas|r.",
---     ptBR = "Todas as opções do |cFFFFFF00Texto de Combate Flutuante|r estão |c000FFF00Desativadas|r.",
---     deDE = "Alle Optionen für |cFFFFFF00Schwebender Kampflogtext|r sind |cFFF00000Deaktiviert|r.",
---     frFR = "Toutes les options du |cFFFFFF00Texte de Combat Flottant|r sont |cFFF00000Désactivées|r.",
---     itIT = "Tutte le opzioni per il |cFFFFFF00Testo di Combattimento Fluttuante|r sono |cFFF00000Disattivate|r.",
---     ruRU = "Все параметры для |cFFFFFF00Плавающего Боевого Текста|r |c000FFF00Отключены|r.",
---     koKR = "|cFFFFFF00부유하는 전투 텍스트|r에대한모든옵션이|c000FFF00비활성화됩니다|r.",
---     zhTW = "|cFFFFFF00浮動戰鬥文|r本的所有選項都已|cFFF00000禁用|r.",
---     zhCN = "|cFFFFFF00浮动战斗文|r本的所有选项都已|cFFF00000禁用|r."
--- }
 -- L.temporaryMessage = "    |cFFFFFF00Floating Combat Text Fix|r just received new features!\n"..
 --                      "You can now modify its behavior via the AddOns pannel.\n"..
 --                      "Send '/fct options' in the chat to visit the new options interface.\n"..
