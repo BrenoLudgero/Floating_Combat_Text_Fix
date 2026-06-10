@@ -9,5 +9,6 @@ Ensures that all FCT related options stay enabled or disabled based on the user'
 ## Additional Features
 * Fully localized
 * Slash command to toggle FCT on or off
+* [Mainline] Restores granular FCT options from previous versions
 
 ![Options Interface](.github/images/Options_Window.png)

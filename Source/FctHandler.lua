@@ -26,6 +26,7 @@ function fctf.toggleFct()
         end
         changeFctState("1", fctf.getLocalizedText("fctEnabled"))
     end
+    fctf.updateInterfaceState()
 end
 
 local function getFctStatusMessage(lastFctState)
@@ -49,6 +50,15 @@ local function updateFctStatus()
     return message
 end
 
+function fctf.refreshFct()
+    if fctf.getCurrentFctState() == "1" then
+        SetCVar("enableFloatingCombatText", "0")
+        RunNextFrame(function() 
+            SetCVar("enableFloatingCombatText", "1") 
+        end)
+    end
+end
+
 -- Updates the FCT options based on the user's preferences on log in / reload
 function fctf.applyUserPreferences()
     for key, option in pairs(fctf.fctOptions) do
@@ -59,4 +69,5 @@ function fctf.applyUserPreferences()
     if shouldDisplayFctStatusMessage then
         print(fctStatusMessage)
     end
+    fctf.updateInterfaceState()
 end

@@ -17,7 +17,7 @@ if isVanilla or isBurningCrusade then
         miss = "floatingCombatTextDodgeParryMiss",
         damageReduct = "floatingCombatTextDamageReduction",
         reputation = "floatingCombatTextRepChanges",
-        reactives = "floatingCombatTextReactives",
+        spells = "floatingCombatTextReactives",
         healerNames = "floatingCombatTextFriendlyHealers",
         comboPoints = "floatingCombatTextComboPoints",
         energyGains = "floatingCombatTextEnergyGains",
@@ -37,7 +37,7 @@ else
         miss = "floatingCombatTextDodgeParryMiss_v2",
         damageReduct = "floatingCombatTextDamageReduction_v2",
         reputation = "floatingCombatTextRepChanges_v2",
-        reactives = "floatingCombatTextReactives_v2",
+        spells = "floatingCombatTextReactives_v2",
         healerNames = "floatingCombatTextFriendlyHealers_v2",
         comboPoints = "floatingCombatTextComboPoints_v2",
         energyGains = "floatingCombatTextEnergyGains_v2",
@@ -59,7 +59,9 @@ local persistenceVariables = {
 
 function fctf.getLocalizedText(variableName)
     local immediateTableValue = fctf.L[variableName]
-    if type(immediateTableValue) == "string" then
+    if immediateTableValue == nil then
+        return "- MISSING STRING -"
+    elseif type(immediateTableValue) == "string" then
         return immediateTableValue
     else
         return immediateTableValue[gameLanguage]
