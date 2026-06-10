@@ -107,6 +107,19 @@ L.fctDisabled = {
     zhTW = "|cFFFFFF00浮動戰鬥文|r本被|cFFF00000禁用|r.",
     zhCN = "|cFFFFFF00浮动战斗文|r本被|cFFF00000禁用|r."
 }
+L.enableFct = {
+    enUS = "Floating Combat Text",
+    esMX = "Texto Flotante de Combate",
+    esES = "Texto Flotante de Combate",
+    ptBR = "Texto de Combate Flutuante",
+    deDE = "Schwebender Kampflogtext",
+    frFR = "Texte de Combat Flottant",
+    itIT = "Testo di Combattimento Fluttuante",
+    ruRU = "Плавающий Боевой Текст",
+    koKR = "부유하는 전투 텍스트",
+    zhTW = "浮動戰鬥文",
+    zhCN = "浮动战斗文"
+}
 -- L.optionsEnabled = {
 --     enUS = "All options for |cFFFFFF00Floating Combat Text|r are |c000FFF00Enabled|r.",
 --     esMX = "Todas las opciones de |cFFFFFF00Texto Flotante de Combate|r están |c000FFF00Habilitadas|r.",

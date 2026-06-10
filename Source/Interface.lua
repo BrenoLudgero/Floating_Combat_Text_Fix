@@ -5,9 +5,10 @@ local _, fctf = ...
 local addonTitle = fctf.getLocalizedText("addonTitle")
 local subtitleText = fctf.getLocalizedText("optionsInterfaceSubtitle")
 local preferencesText = fctf.getLocalizedText("preferences")
+local enableFctText = fctf.getLocalizedText("enableFct")
 local rememberFctStateLabel = fctf.getLocalizedText("rememberFctStateCheckBoxLabel")
-local rememberFctStateTooltip = fctf.getLocalizedText("rememberFctStateCheckBoxTooltip")
 local displayFctStateLabel = fctf.getLocalizedText("displayFctStateCheckBoxLabel")
+local rememberFctStateTooltipText = fctf.getLocalizedText("rememberFctStateCheckBoxTooltip")
 
 ---------------------------------  HORIZONTAL OFFSETS  ---------------------------------
 
@@ -22,11 +23,11 @@ local checkButtonXPosition = initialElementsXPosition + 12
 -- STRINGS
 local addonTitleYPosition = -15
 local subtitleYPosition = addonTitleYPosition - 25
-local preferencesYPosition = subtitleYPosition -50
+local preferencesYPosition = subtitleYPosition - 50
 
 -- CHECKBOXES
-local fctStateCheckBoxYPosition = -120
-local fctMessageCheckBoxYPosition = fctStateCheckBoxYPosition - 35
+local enableFctCheckBoxYPosition = -120
+local fctStateCheckBoxYPosition = enableFctCheckBoxYPosition - 35
 
 ---------------------------------  ELEMENT CREATION FUNCTIONS  ---------------------------------
 
@@ -41,7 +42,7 @@ local function createText(font, text, yPosition, xPosition)
     return fontString
 end
 
-local function createCheckButton(text, yPosition, relatedSavedVariable, xPosition)
+local function createBasicCheckButton(text, yPosition, xPosition)
     local button = CreateFrame("CheckButton", nil, fctf.frame, "InterfaceOptionsCheckButtonTemplate")
     local label = createText("GameFontHighlight", text)
     label:SetParent(button)
@@ -49,6 +50,24 @@ local function createCheckButton(text, yPosition, relatedSavedVariable, xPositio
     button.label = label
     local buttonXPosition = xPosition or initialElementsXPosition
     button:SetPoint("TOPLEFT", buttonXPosition, yPosition)
+    return button
+end
+
+local function createFctToggleCheckButton()
+    local button = createBasicCheckButton(
+        enableFctText,
+        enableFctCheckBoxYPosition,
+        checkButtonXPosition
+    )
+    button:SetChecked(fctf.getCurrentFctState() == "1")
+    button:SetScript("OnClick", function(self)
+        fctf.toggleFct()
+    end)
+    return button
+end
+
+local function createPreferenceCheckButton(text, yPosition, xPosition, relatedSavedVariable)
+    local button = createBasicCheckButton(text, yPosition, xPosition)
     button:SetChecked(fctfPreferences[relatedSavedVariable])
     button:SetScript("OnClick", function(self) 
         fctfPreferences[relatedSavedVariable] = self:GetChecked()
@@ -84,21 +103,22 @@ function fctf.createInterfaceElements()
     createText("GameFontNormalLarge", addonTitle, addonTitleYPosition)
     createText("GameFontHighlight", subtitleText, subtitleYPosition)
     createText("GameFontNormalMed1", preferencesText, preferencesYPosition)
-    local fctStateButton = createCheckButton(
+    createFctToggleCheckButton()
+    local fctStateButton = createPreferenceCheckButton(
         rememberFctStateLabel,
         fctStateCheckBoxYPosition, 
-        "rememberLastFctState",
-        checkButtonXPosition
+        checkButtonXPosition,
+        "rememberLastFctState"
     )
     createQuestionMarkTooltip(
-        rememberFctStateTooltip, 
+        rememberFctStateTooltipText, 
         fctStateButton.label,
         tooltipTextureXOffset
     )
-    createCheckButton(
+    createPreferenceCheckButton(
         displayFctStateLabel, 
         fctMessageCheckBoxYPosition, 
-        "displayFctStatusMessageOnLogin",
-        checkButtonXPosition
+        checkButtonXPosition,
+        "displayFctStatusMessageOnLogin"
     )
 end
