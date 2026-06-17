@@ -12,19 +12,19 @@ local function isFctEnabled()
     return fctf.getCurrentFctState() == "1"
 end
 
-function fctf.toggleFct()
+function fctf.toggleFct(supressMessage)
     if isFctEnabled() then
         fctf.suppressPreferenceSave = true
         for _, option in pairs(fctf.fctOptions) do
             SetCVar(option, 0)
         end
         fctf.suppressPreferenceSave = false
-        changeFctState("0", fctf.getLocalizedText("fctDisabled"))
+        changeFctState("0", not supressMessage and fctf.getLocalizedText("fctDisabled") or nil)
     else
         for key, option in pairs(fctf.fctOptions) do
             SetCVar(option, fctfPreferences[key])
         end
-        changeFctState("1", fctf.getLocalizedText("fctEnabled"))
+        changeFctState("1", not supressMessage and fctf.getLocalizedText("fctEnabled") or nil)
     end
     fctf.updateInterfaceState()
 end

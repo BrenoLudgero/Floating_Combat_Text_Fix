@@ -127,9 +127,10 @@ local function createFctToggleCheckButton()
         enableFctCheckBoxYPosition,
         checkButtonXPosition
     )
+    local supressMessage = true
     button:SetChecked(fctf.getCurrentFctState() == "1")
     button:SetScript("OnClick", function()
-        fctf.toggleFct()
+        fctf.toggleFct(supressMessage)
     end)
     return button
 end
