@@ -5,7 +5,19 @@ local L = fctf.L
 
 L.addonTitle = C_AddOns.GetAddOnMetadata(addonName, "Title")
 L.preferences = PREFERENCES
-L.enableFct = FLOATING_COMBATTEXT_LABEL.." ON"
+L.enableFct = {
+    enUS = "Enable "..FLOATING_COMBATTEXT_LABEL,
+    esMX = "Activar "..FLOATING_COMBATTEXT_LABEL,
+    esES = "Activar "..FLOATING_COMBATTEXT_LABEL,
+    ptBR = "Ativar "..FLOATING_COMBATTEXT_LABEL,
+    deDE = FLOATING_COMBATTEXT_LABEL.." aktivieren",
+    frFR = "Activer "..FLOATING_COMBATTEXT_LABEL,
+    itIT = "Abilita "..FLOATING_COMBATTEXT_LABEL,
+    ruRU = "Включить "..FLOATING_COMBATTEXT_LABEL,
+    koKR = FLOATING_COMBATTEXT_LABEL.." 활성화",
+    zhTW = "啟用"..FLOATING_COMBATTEXT_LABEL,
+    zhCN = "启用"..FLOATING_COMBATTEXT_LABEL
+}
 L.optionsInterfaceSubtitle = {
     enUS = "Created by "..addonAuthor.."\nVersion "..addonVersion,
     esMX = "Creado por "..addonAuthor.."\nVersión "..addonVersion,
