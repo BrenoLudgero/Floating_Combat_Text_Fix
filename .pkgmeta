@@ -1,4 +1,3 @@
 ignore:
   - .github
   - README.md
-  - release.sh

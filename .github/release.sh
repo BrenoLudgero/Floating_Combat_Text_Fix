@@ -1,12 +1,21 @@
+#!/bin/bash
+
+set -e
+
 git fetch --tags --force
 
 LATEST_REMOTE_TAG=$(git describe --tags --abbrev=0)
 
 read -p "Enter new version tag (current: $LATEST_REMOTE_TAG): " NEW_TAG
 
-# Deletes the current tag locally, remotely and 
-# deletes the latest release if NEW_TAG matches LATEST_REMOTE_TAG
-if [ "$NEW_TAG" == "$LATEST_REMOTE_TAG" ]; then
+if [ -z "$NEW_TAG" ]; then
+    echo "No tag entered, aborting."
+    exit 1
+fi
+
+# If NEW_TAG matches LATEST_REMOTE_TAG, deletes the
+# current tag (locally and remotely) and latest release
+if [ "$NEW_TAG" = "$LATEST_REMOTE_TAG" ]; then
     git tag --delete "$LATEST_REMOTE_TAG"
     gh release delete "$LATEST_REMOTE_TAG" -y
     git push remote --delete "$LATEST_REMOTE_TAG"
