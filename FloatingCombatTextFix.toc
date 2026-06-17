@@ -1,4 +1,4 @@
-## Interface: 11508, 20505, 40402, 50504, 120005
+## Interface: 11508, 20505, 40402, 50504, 120007
 ## Version: @project-version@
 ## IconTexture: Interface/ICONS/Ability_MeleeDamage
 
