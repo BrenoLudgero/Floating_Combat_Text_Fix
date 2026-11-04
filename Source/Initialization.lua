@@ -4,50 +4,25 @@ local gameLanguage = GetLocale()
 fctf.frame = CreateFrame("Frame")
 fctf.L = {} -- Localized text
 
-local isVanilla = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
-local isBurningCrusade = WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
-
-if isVanilla or isBurningCrusade then
-    fctf.fctOptions = {
-        floatMode = "floatingCombatTextFloatMode",
-        lowManaHealth = "floatingCombatTextLowManaHealth",
-        auras = "floatingCombatTextAuras",
-        fadingAuras = "floatingCombatTextAuraFade",
-        combatState = "floatingCombatTextCombatState",
-        miss = "floatingCombatTextDodgeParryMiss",
-        damageReduct = "floatingCombatTextDamageReduction",
-        reputation = "floatingCombatTextRepChanges",
-        spells = "floatingCombatTextReactives",
-        healerNames = "floatingCombatTextFriendlyHealers",
-        comboPoints = "floatingCombatTextComboPoints",
-        energyGains = "floatingCombatTextEnergyGains",
-        honorGains = "floatingCombatTextHonorGains",
-        damage = "floatingCombatTextCombatDamage",
-        damagePeriod = "floatingCombatTextCombatLogPeriodicSpells",
-        damagePet = "floatingCombatTextPetMeleeDamage",
-        healing = "floatingCombatTextCombatHealing"
-    }
-else
-    fctf.fctOptions = {
-        floatMode = "floatingCombatTextFloatMode_v2",
-        lowManaHealth = "floatingCombatTextLowManaHealth_v2",
-        auras = "floatingCombatTextAuras_v2",
-        fadingAuras = "floatingCombatTextAuraFade_v2",
-        combatState = "floatingCombatTextCombatState_v2",
-        miss = "floatingCombatTextDodgeParryMiss_v2",
-        damageReduct = "floatingCombatTextDamageReduction_v2",
-        reputation = "floatingCombatTextRepChanges_v2",
-        spells = "floatingCombatTextReactives_v2",
-        healerNames = "floatingCombatTextFriendlyHealers_v2",
-        comboPoints = "floatingCombatTextComboPoints_v2",
-        energyGains = "floatingCombatTextEnergyGains_v2",
-        honorGains = "floatingCombatTextHonorGains_v2",
-        damage = "floatingCombatTextCombatDamage_v2",
-        damagePeriod = "floatingCombatTextCombatLogPeriodicSpells_v2",
-        damagePet = "floatingCombatTextPetMeleeDamage_v2",
-        healing = "floatingCombatTextCombatHealing_v2"
-    }
-end
+fctf.fctOptions = {
+    floatMode = "floatingCombatTextFloatMode_v2",
+    lowManaHealth = "floatingCombatTextLowManaHealth_v2",
+    auras = "floatingCombatTextAuras_v2",
+    fadingAuras = "floatingCombatTextAuraFade_v2",
+    combatState = "floatingCombatTextCombatState_v2",
+    miss = "floatingCombatTextDodgeParryMiss_v2",
+    damageReduct = "floatingCombatTextDamageReduction_v2",
+    reputation = "floatingCombatTextRepChanges_v2",
+    spells = "floatingCombatTextReactives_v2",
+    healerNames = "floatingCombatTextFriendlyHealers_v2",
+    comboPoints = "floatingCombatTextComboPoints_v2",
+    energyGains = "floatingCombatTextEnergyGains_v2",
+    honorGains = "floatingCombatTextHonorGains_v2",
+    damage = "floatingCombatTextCombatDamage_v2",
+    damagePeriod = "floatingCombatTextCombatLogPeriodicSpells_v2",
+    damagePet = "floatingCombatTextPetMeleeDamage_v2",
+    healing = "floatingCombatTextCombatHealing_v2"
+}
 
 local persistenceVariables = {
     rememberLastFctState = false,
@@ -90,6 +65,16 @@ local function createPersistenceVariablesIfMissing()
     end
 end
 
+-- Fills in FCT options missing from SavedVariables with their current CVar values.
+-- Vanilla / TBC previously used CVar names that no longer exist, so their options were never stored
+local function createFctOptionsIfMissing()
+    for key, option in pairs(fctf.fctOptions) do
+        if fctfPreferences[key] == nil then
+            fctfPreferences[key] = GetCVar(option)
+        end
+    end
+end
+
 -- Creates the user's preferences table to be stored in SavedVariables.
 -- Also renames the old SavedVariables if found, keeping previous preferences (2.0.3 -> 3.0.0)
 function fctf.createSavedVariablesIfNeeded()
@@ -102,6 +87,7 @@ function fctf.createSavedVariablesIfNeeded()
         fctPreferences = nil
     end
     createPersistenceVariablesIfMissing()
+    createFctOptionsIfMissing()
 end
 
 -- Displays the add-on in Options -> AddOns
