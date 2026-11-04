@@ -27,9 +27,12 @@ function fctf.handleLogout(event)
     end
 end
 
--- Saves FCT preferences as soon as they've been changed
+-- Saves FCT preferences as soon as they've been changed.
+-- Also intercepts FCT being enabled / disabled from outside of the add-on
 function fctf.handleCVarUpdates(event, cvar, newValue)
-    if event == "CVAR_UPDATE" and not fctf.suppressPreferenceSave then
+    if event == "CVAR_UPDATE" and cvar == "enableFloatingCombatText" then
+        fctf.interceptFctToggle(newValue)
+    elseif event == "CVAR_UPDATE" and not fctf.suppressPreferenceSave then
         for key, option in pairs(fctf.fctOptions) do
             if option == cvar then
                 fctfPreferences[key] = newValue

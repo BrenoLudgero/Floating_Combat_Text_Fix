@@ -1,8 +1,19 @@
 local _, fctf = ...
 
+-- Last FCT state set by the add-on. Remains nil until the user's preferences have been applied
+local addonFctState = nil
+
+-- Sets the FCT CVar while flagging the change as made by the add-on so it isn't intercepted
+local function setFctCVar(state)
+    addonFctState = state
+    fctf.isSettingFctState = true
+    SetCVar("enableFloatingCombatText", state)
+    fctf.isSettingFctState = false
+end
+
 -- Turns FCT on or off depending on "state"
 local function changeFctState(state, message)
-    SetCVar("enableFloatingCombatText", state)
+    setFctCVar(state)
     if message ~= nil then
         print(message)
     end
@@ -52,9 +63,9 @@ end
 
 function fctf.refreshFct()
     if fctf.getCurrentFctState() == "1" then
-        SetCVar("enableFloatingCombatText", "0")
+        setFctCVar("0")
         RunNextFrame(function() 
-            SetCVar("enableFloatingCombatText", "1") 
+            setFctCVar("1")
         end)
     end
 end
@@ -69,5 +80,18 @@ function fctf.applyUserPreferences()
     if shouldDisplayFctStatusMessage then
         print(fctStatusMessage)
     end
+    addonFctState = fctf.getCurrentFctState()
     fctf.updateInterfaceState()
+end
+
+-- Replaces FCT toggles made outside of the add-on (e.g. Options -> Gameplay -> Combat) with fctf.toggleFct()
+function fctf.interceptFctToggle(newState)
+    newState = tostring(newState)
+    if addonFctState == nil 
+    or fctf.isSettingFctState 
+    or newState == addonFctState then
+        return
+    end
+    setFctCVar(addonFctState) -- Reverts the external change before toggling
+    fctf.toggleFct()
 end
